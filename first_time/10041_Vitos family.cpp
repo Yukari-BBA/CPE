@@ -9,6 +9,13 @@
 
 using namespace std;
 
+/* 
+3
+2 2 4
+3 2 4 6
+4 2 1 999 5
+*/ 
+
 int main()
 {
 	int time;
@@ -21,6 +28,7 @@ int main()
 	cin >> time;
 	for(int i=0;i<time;i++)
 	{
+		//¹w³B²z 
 		sum=0;
 		num.clear();
 		cin >> count;
@@ -43,13 +51,18 @@ int main()
 				}
 			}
 		}
-		int tmp = (num.size()+1)/2;
+		
+		int tmp = num.size()/2;
+		
+//		cout <<"tmp "<< tmp <<endl;
+		
 		for(int j=0;j<num.size();j++)
 		{
-			sum = sum+(num[tmp-1]-num[j]);
+			sum = sum+abs(num[tmp]-num[j]);
 //			cout << num[j] << tmp << endl;
+//			cout << sum <<endl;
 		}
+//		cout << "end "<< sum <<endl;
 		cout << sum <<endl;
-		
 	}
 }

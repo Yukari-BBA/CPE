@@ -13,8 +13,9 @@ int main()
 {
 	long double p;
 	long double fail;
+	long double ans;
 	int time;
-	int player;
+	int players;
 	int win_player;
 	
 	cin >> time;
@@ -30,7 +31,14 @@ int main()
 		{
 			cout << "0.0000" << endl;
 			continue;
+//			continue;
 		}
+		
+		ans = p * pow(fail,win_player-1)/(1-pow(fail,players));
+		cout << fixed << setprecision(4) << ans << endl;  // 輸出答案，並且要求輸出到小數點第四位
+		
+//		cout << fixed << setprecision
+		
 		
 		
 		
