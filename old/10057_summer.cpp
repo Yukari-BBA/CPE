@@ -1,77 +1,82 @@
 #include <iostream>
-#include <cctype>
-#include <string>
-#include <cstring>
-#include <algorithm>
-#include <math.h>
 #include <iomanip>
 #include <vector>
+#include <cstring>
+#include <string>
+#include <math.h>
+#include <cctype>
+#include <algorithm>
 
 using namespace std;
 
 int main()
 {
-	int len=0;
-	vector<int> num;
-	int tmp=0;
-	int min=0;
-	int min_num=0;
-	int type=0;
+	int time;
+	int tmp;
+	int min;
+	int mid_num_count;
+	int mid_num_version;
+	int mid_left;
+	int mid_right;
 	
-	while(cin >> len)
+	vector<int> num;
+	
+	while(cin >> time)
 	{
-		num.clear();
-		tmp=0;
+		mid_num_count=0;
+		mid_num_version=0;
+		mid_left=0;
+		mid_right=0;
 		min=0;
-		min_num=0;
-		type = 1;
-		
-		for(int i=0;i<len;i++)
+		num.clear();
+		for(int i=0;i<time;i++)
 		{
 			cin >> tmp;
 			num.push_back(tmp);
 		}
-//		for(vector<int>::iterator it=num.begin();it!=num.end();it++)
-//		{
-//			cout << *it << " ";
-//		}
-		sort(num.begin(),num.end());
-//		for(vector<int>::iterator it=num.begin();it!=num.end();it++)
-//		{
-//			cout << *it << " ";
-//		}
 		
-		if(num.size()<1)
+		//sort
+		for(int i=0;i<num.size()-1;i++)
 		{
-			min = num[0];
+			for(int j=0;j<num.size()-1-i;j++)
+			{
+				if(num[j]>num[j+1])
+				{
+					tmp=num[j];
+					num[j]=num[j+1];
+					num[j+1]=tmp;
+				} 
+			}
 		}
-		else if(num.size()>1)
-		{
-			min = num[(num.size()-1)/2];
-		}
+		
+		min = num[0];
+		
+		mid_left=num[(time-1)/2];
+		mid_right=num[time/2];
+		
+		mid_num_version = mid_right-mid_left+1;
+		
 		for(int i=0;i<num.size();i++)
 		{
-			if(num[i]==min)
+			if(num[i]==mid_left or num[i]==mid_right)
 			{
-				min_num++;
-			}
-		}
-		if(num.size()>1 and num[(num.size()-1)/2]!=num[num.size()/2])
-		{
-//			min_num++;
-			type ++;
-			for(int i=0;i<num.size();i++)
-			{
-				if(num[i]==num[num.size()/2])
-				{
-					min_num++;
-				}
+				mid_num_count++;
 			}
 		}
 		
-		cout << min << " "<< min_num <<" "<< (num[len>>1] - min + 1)<<endl;
-//		(num[len>>1]-num[(num.size()-1)/2]+1)
+		//1 1 2 2 4 5
 		
+		//test print
+//		for(int i=0;i<num.size();i++)
+//		{
+//			cout << i << " " << num[i] <<endl;
+//		}
 		
+//		cout << min << " " << mid << " " << mid_num_count << " " << mid_num_version << endl;
+		
+		cout << mid_left << " " << mid_num_count << " " << mid_num_version << endl;
+	
 	}
+	
+	return 0;
 }
