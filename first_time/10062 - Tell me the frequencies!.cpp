@@ -43,7 +43,7 @@ int main()
 //			cout << i << endl;
 			for(int j=0;j<ascii_num.size();j++)
 			{
-				if(std[i]==ascii_num[j])
+				if(int(std[i])==ascii_num[j])
 				{
 					flag=true;
 					ascii_word_count[j] = ascii_word_count[j] +1;
@@ -51,7 +51,7 @@ int main()
 			}
 			if(flag==false)
 			{
-				ascii_num.push_back(int(std[i]));
+				ascii_num.push_back(std[i]);
 				ascii_word_count.push_back(1);
 			}
 			
