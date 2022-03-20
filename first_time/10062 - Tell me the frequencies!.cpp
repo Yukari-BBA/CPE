@@ -51,8 +51,11 @@ int main()
 			}
 			if(flag==false)
 			{
-				ascii_num.push_back(std[i]);
-				ascii_word_count.push_back(1);
+				if(int(std[i])>=32)
+				{
+					ascii_num.push_back(int(std[i]));
+					ascii_word_count.push_back(1);
+				}
 			}
 			
 		}
@@ -70,7 +73,7 @@ int main()
 					ascii_num[j] = ascii_num[j+1];
 					ascii_num[j+1] = tmp;
 				}
-				else if (ascii_word_count[j]==ascii_word_count[j+1] and ascii_num[j]>ascii_num[j+1])
+				else if (ascii_word_count[j]==ascii_word_count[j+1] and ascii_num[j]<ascii_num[j+1])
 				{
 					tmp = ascii_word_count[j];
 					ascii_word_count[j] = ascii_word_count[j+1];

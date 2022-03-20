@@ -12,7 +12,6 @@ using namespace std;
 int main()
 {
 	string std;
-	bool flag=false;
 	bool not_first=false;
 	int tmp;
 	
@@ -29,24 +28,32 @@ int main()
 		}
 		//////////////////////////////////////////////////////////
 		
-		int ascii_num[97]={0},ascii_word_count[97]={0};
+		//array
+		int ascii_num[97]={0};
+		int ascii_num_count[97]={0};
 		
-		for(i =0;i<96;i++)//產生ASCII的值 
+		
+		for(int i=0;i<96;i++)
 		{
-			ascii_num[i]=i+32;
+			ascii_num[i] = i+32;
 		}
 		
-		for(i =0;i<std.length();i++)//計算輸入字串的ASCII出現次數 
+		for(int i=0;i<std.size();i++)
 		{
-			ascii_word_count[std[i]-32]++;
+			ascii_num_count[int(std[i])-32] = ascii_num_count[int(std[i])-32] + 1;
 		}
 		
 		
+		//////////////////////////////////////////////////////////
 		
 //		test print
-		for(int i=0;i<ascii_num.size();i++)
+		for(int i=0;i<96;i++)
 		{
-			cout << ascii_num[i] << " " << ascii_word_count[i] <<endl;
+//			if(ascii_num_count[i]!=0)
+//			{
+//				cout << ascii_num[i] << " " << ascii_num_count[i] << endl;
+//			}
+			cout << ascii_num[i] << " " << ascii_num_count[i] << endl;
 		}
 		
 		not_first=true;

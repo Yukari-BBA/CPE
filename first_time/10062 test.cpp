@@ -56,6 +56,7 @@ int main()
 			{
 				cout<<asc[i]<<" "<<count[i]<<endl;
 			}
+//			cout<<asc[i]<<" "<<count[i]<<endl;
 		}
 		
 		r=1;//第一筆資料後要換行 
