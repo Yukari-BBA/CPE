@@ -43,6 +43,14 @@ int main()
 			count ++;
 		}
 		
+//		for(int j=0;j<n*n;j++)
+//		{
+//			if(mat[j]!=mat[(n*n-1)-j] and mat[j]<0)
+//			{
+//				break;
+//			}
+//		}
+		
 		if(count==n*n)
 		{
 			cout<<"Test #"<<i<<": Symmetric."<<endl;
