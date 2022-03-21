@@ -1,37 +1,41 @@
 #include <iostream>
-#include <cstring>
-#include <algorithm>
+#include <string>
 using namespace std;
- 
-int t, m, n, q, a[105][105], mx[105][105], x, y, ans;
-char c;
- 
-int main() {
-    memset(a, -1, sizeof(a));
-    cin >> t;
-    while (t--){
-        cin >> m >> n >> q;
-        for (int i = 0; i < m; i++){
-            for (int j = 0; j < n; j++){
-                cin >> c;
-                a[i][j] = (int)c;
-                if (i == 0 || j == 0) mx[i][j] = 1;
-                else if (a[i][j] == a[i-1][j] && a[i][j] == a[i-1][j-1] && a[i][j] == a[i][j-1]){
-                    mx[i][j] = min({mx[i-1][j], mx[i-1][j-1], mx[i][j-1]})+1 ;
-                }
-                else mx[i][j] = 1;
-            }
-        }
-        cout << m << " " << n << " " << q << "\n";
-        while (q--){
-            cin >> x >> y;
-            ans = 1;
-            for (int i = 1; i <= 100; i++){
-                if (x+i > m || y+i > n) break;
-                if (mx[x+i][y+i] >= ans+2) ans += 2;
-                else break;
-            }
-            cout << ans << "\n";
-        }
-    }
+
+int main()
+{
+	int t,n,i,c;
+	string is1;
+	cin>>c;//輸入測資數量 
+	
+	for(t=1;t<=c;t++)
+	{
+		cin>>is1>>is1>>n;//輸入矩陣數量
+						 //前面有N=所以用string輸入完就是數字了 
+		long long  mat[n*n]={};//使用一維陣列就可以了
+		 
+		for(i=0;i<n*n;i++)//輸入矩陣數字 
+		{	
+			cin>>mat[i];
+		
+		}
+		
+		for(i=0;i<n*n;i++)//因為會以中間為對稱點 
+		{				  //所以從最外圍兩個數字開始往中間比對 
+			if(mat[i]!=mat[(n*n-1)-i]||mat[i]<0)//若數字小於0或是數字不一樣就中斷 
+			{
+				break;
+			}
+		}
+		
+		if(i==n*n)//如果迴圈沒有被中斷就是對稱矩陣 
+		{
+			cout<<"Test #"<<t<<": Symmetric."<<endl;
+		}
+		else
+		{
+			cout<<"Test #"<<t<<": Non-symmetric."<<endl;
+		}
+	}
+	return 0;
 }
