@@ -1,35 +1,57 @@
+//#include <iostream>
+//#include <algorithm>
+//#include <vector>
+//#include <cctype>
+//#include <cmath>
+//#include <iomanip>
+//#include <cstring>
+//#include <string>
+//#include <math.h> 
+//#include <map>
+//#include <sstream>
+
 #include <iostream>
-#include <algorithm>
-#include <vector>
-#include <cctype>
+#include <sstream>
 #include <cmath>
 #include <iomanip>
-#include <cstring>
 #include <string>
-#include <math.h> 
-#include <map>
-#include <sstream>
+#include <cstring>
+#include <algorithm>
+#include <cctype>
+#include <math.h>
+#include <vector>
+#include <map> 
 
 using namespace std;
 
-string s;
-int cnt, blk;
-
 int main()
 {
-	while (getline(cin, s))
+	string std;
+	int count=1;
+	while(getline(cin,std))
 	{
-        for (int i = 0; i < s.length(); i++)
+		for(int i=0;i<std.size();i++)
 		{
-            if (s[i] == '\"')
+			if(std[i]=='"' and count%2==1)
 			{
-                if (cnt % 2 == 0) cout << "``";
-                else cout << "''";
-                cnt++;
-            }
-            else cout << s[i];
-        }
-        cout << "\n";
-    }
+				cout << "``";
+				count++;
+			}
+			else if(std[i]=='"' and count%2==0)
+			{
+				cout << "''";
+				count++;
+			}
+			else
+			{
+				cout << std[i] ;
+			}
+			
+		}
+		cout << endl;
+	}
+	
 	
 }
+
+

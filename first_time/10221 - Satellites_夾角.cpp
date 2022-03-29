@@ -12,6 +12,13 @@ using namespace std;
 
 #define PI acos(0.0)*2.0
 
+#define PI acos(0.0)*2.0
+
+#define PI acos(0.0)*2.0
+#define PI acos(0.0)*2.0
+
+//ans = p * pow(fail,win_player)/(1-pow(fail,players))
+
 //#define PI acos(0.0)*2.0
 //#define PI acos(0.0)*2.0
 
@@ -37,6 +44,14 @@ int main()
 		{
 			angle = 360.0 - angle;
 		}
+		
+		
+		
+		
+//		arc = 2 * PI * (range+earth)*angle/360;
+		arc = 2 * PI * R * angle /360
+		chord = 2 * R * cos((90.0-angle/2.0)/180*PI)
+		
 		
 		
 		//	©¶ªø chord

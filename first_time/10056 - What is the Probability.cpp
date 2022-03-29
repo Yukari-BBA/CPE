@@ -34,11 +34,26 @@ int main()
 //			continue;
 		}
 		
+//		ans = p * pow(fail,win_player-1)/(1-pow(fail,players) ;
+
+
+		
+		
+		
+		
+		
+//		ans = p * pow(fail,win_player)/(1-pow(fail,plyers))
+		
+		
+		
+
+
 		ans = p * pow(fail,win_player-1)/(1-pow(fail,players));
 //			  p * pow(fail,player_win-1)/(1-pow(fail,plyerss);
 		cout << fixed << setprecision(4) << ans << endl;  // 輸出答案，並且要求輸出到小數點第四位
 		
 //		cout << fixed << setprecision
+// 		cout << fixed <<setprecision(4)
 
 //		cout << fixed << setprecision(4)  << ans << endl;
 //		
